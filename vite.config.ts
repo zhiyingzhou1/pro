@@ -7,28 +7,28 @@ import { exec } from "child_process";
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    {
-      name: "postbuild-commands", // the name of your custom plugin. Could be anything.
-      closeBundle: async () => {
-        // await postBuildCommands(); // run during closeBundle hook. https://rollupjs.org/guide/en/#closebundle
-        console.log("after build");
-        exec("npm run build-dts", (error, stdout, stderr) => {
-          console.log(`stdout: ${stdout}`);
-          console.log(`stderr: ${stderr}`);
-          if (error !== null) {
-            console.log(`exec error: ${error}`);
-          } else {
-            // exec("yalc push --sig", (error, stdout, stderr) => {
-            //   console.log(`stdout: ${stdout}`);
-            //   console.log(`stderr: ${stderr}`);
-            //   if (error !== null) {
-            //     console.log(`exec error: ${error}`);
-            //   }
-            // });
-          }
-        });
-      },
-    },
+    // {
+    //   name: "postbuild-commands", // the name of your custom plugin. Could be anything.
+    //   closeBundle: async () => {
+    //     // await postBuildCommands(); // run during closeBundle hook. https://rollupjs.org/guide/en/#closebundle
+    //     console.log("after build");
+    //     exec("npm run build-dts", (error, stdout, stderr) => {
+    //       console.log(`stdout: ${stdout}`);
+    //       console.log(`stderr: ${stderr}`);
+    //       if (error !== null) {
+    //         console.log(`exec error: ${error}`);
+    //       } else {
+    //         // exec("yalc push --sig", (error, stdout, stderr) => {
+    //         //   console.log(`stdout: ${stdout}`);
+    //         //   console.log(`stderr: ${stderr}`);
+    //         //   if (error !== null) {
+    //         //     console.log(`exec error: ${error}`);
+    //         //   }
+    //         // });
+    //       }
+    //     });
+    //   },
+    // },
   ],
   build: {
     cssTarget: "chrome61",
