@@ -33,9 +33,9 @@ export default defineConfig({
   build: {
     cssTarget: "chrome61",
     sourcemap: true,
-    watch: {
-      include: "src/**",
-    },
+    // watch: {
+    //   include: "src/**",
+    // },
     rollupOptions: {
       external: ["klinecharts"],
       output: {
