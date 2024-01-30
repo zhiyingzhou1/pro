@@ -1,6 +1,6 @@
 {
-  "name": "@klinecharts/pro",
-  "version": "0.1.1",
+  "name": "@atom/klinecharts-pro",
+  "version": "0.0.1",
   "description": "Financial chart built out of the box based on KLineChart.",
   "type": "module",
   "main": "./dist/klinecharts-pro.umd.js",
@@ -28,6 +28,7 @@
   "license": "Apache-2.0",
   "private": false,
   "scripts": {
+    "dev": "tsc && vite build --mode=dev",
     "build-core": "tsc && vite build",
     "build-dts": "dts-bundle-generator --no-banner true --umd-module-name klinechartspro -o dist/index.d.ts src/index.ts",
     "build": "npm run build-core && npm run build-dts",
@@ -63,6 +64,6 @@
     "solid-js": "^1.6.11"
   },
   "peerDependencies": {
-    "klinecharts": ">=9.0.0"
+    "klinecharts": "^9.7.2"
   }
 }

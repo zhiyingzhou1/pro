@@ -3,10 +3,20 @@
 @gap: 8px;
 
 .@{prefix-cls}-drawing-bar {
+  position: relative;
   width: @drawing-bar-width;
   height: 100%;
   box-sizing: border-box;
-  border-right: solid 1px var(--klinecharts-pro-border-color);
+  background-color: var(--klinecharts-pro-drawing-bar-background-color);
+
+  &.kline-bar-hidden {
+    width: 0px;
+    .item {
+      display: none;
+    }
+  }
+
+  // border-right: solid 1px var(--klinecharts-pro-border-color);
   .item {
     display: flex;
     flex-direction: row;
@@ -19,20 +29,24 @@
     color: var(--klinecharts-pro-text-second-color);
     fill: var(--klinecharts-pro-text-second-color);
     stroke: var(--klinecharts-pro-text-second-color);
+
     .icon-overlay {
       width: 32px;
       height: 32px;
       border-radius: 2px;
       transition: all 0.2s;
-      &:hover {
-        background-color: var(--klinecharts-pro-hover-background-color);
-      }
+
+      // &:hover {
+      //   background-color: var(--klinecharts-pro-hover-background-color);
+      // }
+
       &.selected {
-        background-color: var(--klinecharts-pro-selected-color)!important;
+        background-color: var(--klinecharts-pro-selected-color) !important;
         fill: var(--klinecharts-pro-primary-color);
         stroke: var(--klinecharts-pro-primary-color);
       }
     }
+
     .icon-arrow {
       display: flex;
       flex-direction: row;
@@ -48,14 +62,17 @@
       border-top-left-radius: 2px;
       border-bottom-left-radius: 2px;
       z-index: 10;
+
       svg {
         width: 4px;
         height: 6px;
         transition: all .2s;
+
         &.rotate {
           transform: rotate(180deg);
         }
       }
+
       &:hover {
         background-color: var(--klinecharts-pro-hover-background-color);
       }
@@ -71,8 +88,10 @@
       box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .3);
       min-height: auto;
       max-height: 320px;
+
       li {
         padding-left: 16px;
+
         .icon-overlay {
           &:hover {
             background-color: transparent;
@@ -80,7 +99,7 @@
         }
       }
     }
-    
+
     &:hover {
       .icon-arrow {
         opacity: 1;
@@ -92,7 +111,52 @@
     display: block;
     width: 100%;
     height: 1px;
-    background-color: var(--klinecharts-pro-border-color);
+    background-color: var(--klinecharts-pro-split-line-color);
     margin-top: @gap;
+  }
+}
+
+.kline-draw-panel-pointer {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  bottom: 65px;
+  left: 100%;
+  width: 12px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: var(--color-bg-layout);
+  border-color: var(--color-eaecef);
+  border-width: 1px;
+  border-style: solid;
+  color: var(--color-707a-8a);
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-width: 1px 0px 0px 1px;
+    border-style: solid;
+    transform-origin: center center;
+    transform: rotate(-45deg) translateY(-50%);
+  }
+
+  &.kline-bar-hidden {
+    &:after {
+      transform: rotate(135deg) translateY(100%);
+      transition: transform 0.116667s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    }
+  }
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: rgb(30, 32, 38);
   }
 }
