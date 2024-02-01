@@ -1,6 +1,6 @@
 {
   "name": "@atom/klinecharts-pro",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Financial chart built out of the box based on KLineChart.",
   "type": "module",
   "main": "./dist/klinecharts-pro.umd.js",
