@@ -14,10 +14,10 @@
 ### Using npm or yarn
 ```bash
 # using npm
-npm install @klinecharts/pro --save
+npm install @atom/klinecharts-pro --save
 
 # using yarn
-yarn add @klinecharts/pro
+yarn add @atom/klinecharts-pro
 ```
 
 ### Using unpkg or jsDelivr
