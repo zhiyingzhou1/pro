@@ -139,4 +139,8 @@ export default class KLineChartPro implements ChartPro {
   get widget() {
     return this._chartApi!.getWidget?.();
   }
+
+  get loading() {
+    return this._chartApi!.getLoading?.();
+  }
 }

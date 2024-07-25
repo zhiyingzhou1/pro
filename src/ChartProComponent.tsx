@@ -169,6 +169,7 @@ const ChartProComponent: Component<ChartProComponentProps> = (props) => {
     setPeriod,
     getPeriod: () => period(),
     getWidget: () => widget,
+    getLoading: loadingVisible,
   });
 
   const documentResize = () => {
