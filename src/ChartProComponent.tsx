@@ -201,11 +201,11 @@ const ChartProComponent: Component<ChartProComponentProps> = (props) => {
         const dif = week === 0 ? 6 : week - 1;
         to = to - dif * 60 * 60 * 24;
         const newDate = new Date(to);
-        to = new Date(
+        to = (new Date(
           `${newDate.getFullYear()}-${
             newDate.getMonth() + 1
           }-${newDate.getDate()}`
-        ).getTime();
+        )).getTime();
         from = count * period.multiplier * 7 * 24 * 60 * 60 * 1000;
         break;
       }
@@ -213,21 +213,21 @@ const ChartProComponent: Component<ChartProComponentProps> = (props) => {
         const date = new Date(to);
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
-        to = new Date(`${year}-${month}-01`).getTime();
+        to = (new Date(`${year}-${month}-01`)).getTime();
         from = count * period.multiplier * 30 * 24 * 60 * 60 * 1000;
         const fromDate = new Date(from);
-        from = new Date(
+        from = (new Date(
           `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-01`
-        ).getTime();
+        )).getTime();
         break;
       }
       case "year": {
         const date = new Date(to);
         const year = date.getFullYear();
-        to = new Date(`${year}-01-01`).getTime();
+        to = (new Date(`${year}-01-01`)).getTime();
         from = count * period.multiplier * 365 * 24 * 60 * 60 * 1000;
         const fromDate = new Date(from);
-        from = new Date(`${fromDate.getFullYear()}-01-01`).getTime();
+        from = (new Date(`${fromDate.getFullYear()}-01-01`)).getTime();
         break;
       }
     }
@@ -430,7 +430,7 @@ const ChartProComponent: Component<ChartProComponentProps> = (props) => {
       loading = true;
       setLoadingVisible(true);
       const get = async () => {
-        const [from, to] = adjustFromTo(p, new Date().getTime(), 500);
+        const [from, to] = adjustFromTo(p, (new Date()).getTime(), 500);
         const kLineDataList = await props.datafeed.getHistoryKLineData(
           s,
           { ...p, firstDataRequest: true },
